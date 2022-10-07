@@ -1,6 +1,6 @@
 Consider a CSP, where there are eight variables A, B, C, D, E, F, G, H, each with domain {1, 2, 3, 4}. Suppose the constraints are:
-• A > G
-• |G – C| = 1
+- A > G
+-|G – C| = 1
 • D != C
 • G != F
 • |E – F| is odd
