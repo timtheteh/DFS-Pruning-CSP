@@ -1,4 +1,8 @@
-variable_list = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0, "F": 0, "G": 0, "H": 0}
+ordering = ["A", "B", "C", "D", "E", "F", "G", "H"]
+variable_list = {}
+for var in ordering:
+    variable_list[var] = 0
+# variable_list = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0, "F": 0, "G": 0, "H": 0}
 
 # The purpose of this variable is to find the next variable which is unfilled, 
 # ie. still assigned 0
