@@ -1,4 +1,4 @@
-ordering = ["A", "B", "C", "D", "E", "F", "G", "H"]
+ordering = ["H", "C", "D", "F", "E", "G", "A", "B"]
 variable_list = {}
 for var in ordering:
     variable_list[var] = 0
