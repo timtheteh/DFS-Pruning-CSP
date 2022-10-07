@@ -1,5 +1,7 @@
 variable_list = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0, "F": 0, "G": 0, "H": 0}
 
+# The purpose of this variable is to find the next variable which is unfilled, 
+# ie. still assigned 0
 def find_next_variable(variable_list):
     for key, value in variable_list.items():
         if value == 0:
@@ -7,6 +9,8 @@ def find_next_variable(variable_list):
     return None
 
 def is_valid(variable_list, variable, num):
+    # A copy of the variables are copied to new_list
+    # This new_list only contains the variables that have been assigned values so far
     new_list = {}
     for key, value in variable_list.items():
         if value != 0:
@@ -14,6 +18,7 @@ def is_valid(variable_list, variable, num):
     new_list[variable] = num
     
     for key, value in new_list.items():
+        # Does a constraint check for each key
         if key == "A":
             if "G" in new_list.keys():
                 if new_list["A"] <= new_list["G"]:
@@ -124,16 +129,19 @@ def dfs_prune(variable_list):
     global num_failed
     global solutions
     variable = find_next_variable(variable_list)
+    # This is a base case: when all elements in variable_list is filled,
+    # It means that a solution is found
     if variable is None:
         return True
     for num in range(1,5):
+        # Checks if each given value in range(1,5) is valid for the given variable        
         if is_valid(variable_list, variable, num):
             variable_list[variable]=num
             print_list(variable_list, variable, num, True)
+            # If base case is reached, add the solution to the global solutions variable
             if dfs_prune(variable_list):
                 solution = variable_list.copy() 
                 solutions.append(solution)
-#                 return True
             variable_list[variable]=0
         else:
             num_failed += 1
